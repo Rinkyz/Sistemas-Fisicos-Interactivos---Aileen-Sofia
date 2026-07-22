@@ -11,5 +11,5 @@ $piano : note("{<[[e3]@0.6 [e3, g3, b3]@1.25*2 [b2]@0.6 [eb3, f#3, a3]@1.25*2 [e
 .postgain(PIANO_ON2 ? 0.5 : 0)
 
 $flute : note ("{<[e4 g4 b4 a4@1.5 b4@0.5 a4@0.5 g4@0.5 b4@3 g4 a4 b4 e4 g4 b4 a4@1.5 b4@0.5 a4@0.5 g4@0.5 a4 b4 c5 b4 c5 b4]@15>}")
-.sound("triangle") 
+.sound("gm_acoustic_bass") 
 .postgain(flaute ? 1 : 0)

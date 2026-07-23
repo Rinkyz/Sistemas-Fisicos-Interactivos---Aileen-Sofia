@@ -27,4 +27,4 @@ $coso : note(`<[[~]]@44.5 [[e4 g4 b4 a4@1.6 b4@0.5 a4@0.5 g4@0.5 b4@3.2 g4 a4 b4
   .hpf(120)
   .room(0.35)
   .delay(0.15)
-  .postgain(COSO ? 1 : 0)
+  .postgain(COSO ? 0.75 : 0)

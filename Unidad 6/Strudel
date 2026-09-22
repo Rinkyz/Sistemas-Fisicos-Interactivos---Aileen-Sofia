@@ -1,0 +1,16 @@
+//Confort chain
+
+setcpm(16)
+
+const {visualid} = createParams('visualid')
+
+
+const piano1 = note(`<[[eb5 e5 b5 ab5]*3]@5>`) 
+              .sound("piano").coarse(4).visualid("piano1")
+
+const piano2 = note(`<[[a4, db4, e4]*2]@3 [b4, db4, e4]@2 [b4, db4, f#4]@2>`) 
+              .sound("piano").coarse(4).visualid("piano1")
+
+$piano1: stack(piano1, piano1.osc())
+$piano2: stack(piano2, piano2.osc())
+

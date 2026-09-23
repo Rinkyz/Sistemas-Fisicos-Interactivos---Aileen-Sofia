@@ -2,20 +2,23 @@
 
 setcpm(50)
 
+const GoodOn = 0
+const prueba = 1
+const BadOn = 0
+
 const {visualid} = createParams('visualid')
 
 
-const goodpiano1 = note(`<[[eb5 e5 b5 ab5]*3]@3>`) 
-              .sound("gm_steel_drums").coarse(4).visualid("piano1")
-const goodpiano2 = note(`<[[a3, db4, e4]*2]@4 [b3, db4, e4]@2 [b3, db4, f#4]@2>`) 
-              .sound("piano").coarse(4).visualid("piano1")
+const goodpiano1 = note(`<[[[g5 b5 d5 e5] f#5] [[f#5 Bb5 d5 e5] f#5] [[d5 f#5 a5 b5 db6]@2 b5]*2]@5 >`) 
+              .sound("gm_steel_drums").coarse(4).visualid("piano1").postgain(prueba ? 0.75 : 0) 
+const goodpiano2 = note(`<[[a1, db2, e2]*2]@4 [b1, db2, e2]@2 [b1, db2, f#2]@2>`) 
+              .sound("gm_fx_goblins").coarse(4).visualid("piano1").postgain(GoodOn ? 0.75 : 0) 
 
-const badpiano1 = note(`<[[eb5 ab5]*3]@8>`) 
-              .sound("gm_fx_echoes").visualid("piano1").gain(0.2)
+const badpiano1 = note(`<[[eb3 e3 b3 ab3]*3]@8>`) 
+              .sound("gm_guitar_harmonics").visualid("piano1").postgain(BadOn ? 0.75 : 0) 
 
 const badpiano2 = note(`<[a1, db2, e2]@5.5 [b1, db2, e2]@5 [b1, db2, f#2]@5>`) 
-              .sound("gm_choir_aahs").visualid("piano1").gain(0.5).clip(isaw.slow(2))
-
+              .sound("gm_fx_goblins").visualid("piano1").postgain(BadOn ? 0.75 : 0)
 
 $goodpiano1: stack(goodpiano1, goodpiano1.osc())
 $goodpiano2: stack(goodpiano2, goodpiano2.osc())

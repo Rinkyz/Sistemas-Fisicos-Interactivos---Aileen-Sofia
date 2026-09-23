@@ -1,1 +1,23 @@
+//Confort chain
 
+setcpm(50)
+
+const {visualid} = createParams('visualid')
+
+
+const goodpiano1 = note(`<[[eb5 e5 b5 ab5]*3]@3>`) 
+              .sound("gm_steel_drums").coarse(4).visualid("piano1")
+const goodpiano2 = note(`<[[a3, db4, e4]*2]@4 [b3, db4, e4]@2 [b3, db4, f#4]@2>`) 
+              .sound("piano").coarse(4).visualid("piano1")
+
+const badpiano1 = note(`<[[eb5 ab5]*3]@8>`) 
+              .sound("gm_fx_echoes").visualid("piano1").gain(0.2)
+
+const badpiano2 = note(`<[a1, db2, e2]@5.5 [b1, db2, e2]@5 [b1, db2, f#2]@5>`) 
+              .sound("gm_choir_aahs").visualid("piano1").gain(0.5).clip(isaw.slow(2))
+
+
+$goodpiano1: stack(goodpiano1, goodpiano1.osc())
+$goodpiano2: stack(goodpiano2, goodpiano2.osc())
+$badpiano1: stack(badpiano1, badpiano1.osc())
+$badpiano2: stack(badpiano2, badpiano2.osc())

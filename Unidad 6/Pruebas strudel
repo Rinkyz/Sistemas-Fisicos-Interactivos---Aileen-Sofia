@@ -1,18 +1,17 @@
 //Confort chain
 
-setcpm(50)
+setcpm(40)
 
-const GoodOn = 0
-const prueba = 1
+const GoodOn = 1
 const BadOn = 0
 
 const {visualid} = createParams('visualid')
 
 
-const goodpiano1 = note(`<[[[g5 b5 d5 e5] f#5] [[f#5 Bb5 d5 e5] f#5] [[d5 f#5 a5 b5 db6]@2 b5]*2]@5 >`) 
-              .sound("gm_steel_drums").coarse(4).visualid("piano1").postgain(prueba ? 0.75 : 0) 
-const goodpiano2 = note(`<[[a1, db2, e2]*2]@4 [b1, db2, e2]@2 [b1, db2, f#2]@2>`) 
-              .sound("gm_fx_goblins").coarse(4).visualid("piano1").postgain(GoodOn ? 0.75 : 0) 
+const goodpiano1 = note(`<[[[g4 b4 d5 e5] f#5] [[f#4 Bb4 d5 e5] f#5] [[d4 f#4 a4]@2.7 [[b4 db5]@0.5 b4@2]@5] [[d4 f#4 a4]@2.7 [[b4 db5]@0.5 b4@2]@5]]@5>`) 
+              .sound("gm_steel_drums").coarse(4).visualid("piano1").postgain(GoodOn ? 0.75 : 0) 
+const goodpiano2 = note(`<[b3 Bb3 a3 a3]@5>`) 
+              .sound("gm_choir_aahs").coarse(4).visualid("piano2").postgain(GoodOn ? 0.425 : 0)
 
 const badpiano1 = note(`<[[eb3 e3 b3 ab3]*3]@8>`) 
               .sound("gm_guitar_harmonics").visualid("piano1").postgain(BadOn ? 0.75 : 0) 

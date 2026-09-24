@@ -1,23 +1,23 @@
-//Confort chain
+//7 weeks and 3 days
 
 setcpm(40)
 
-const GoodOn = 1
-const BadOn = 0
+const GoodOn = 0
+const BadOn = 1
 
 const {visualid} = createParams('visualid')
 
 
 const goodpiano1 = note(`<[[[g4 b4 d5 e5] f#5] [[f#4 Bb4 d5 e5] f#5] [[d4 f#4 a4]@2.7 [[b4 db5]@0.5 b4@2]@5] [[d4 f#4 a4]@2.7 [[b4 db5]@0.5 b4@2]@5]]@5>`) 
-              .sound("gm_steel_drums").coarse(4).visualid("piano1").postgain(GoodOn ? 0.75 : 0) 
+              .sound("piano").coarse(4).visualid("piano1").postgain(GoodOn ? 0.75 : 0) 
 const goodpiano2 = note(`<[b3 Bb3 a3 a3]@5>`) 
               .sound("gm_choir_aahs").coarse(4).visualid("piano2").postgain(GoodOn ? 0.425 : 0)
 
-const badpiano1 = note(`<[[eb3 e3 b3 ab3]*3]@8>`) 
-              .sound("gm_guitar_harmonics").visualid("piano1").postgain(BadOn ? 0.75 : 0) 
+const badpiano1 = note(`<[[[g1 e0 ~ e3] f#1] [[f#1 d0 ~ e3] f#1] [[d2 c1 ~]@2.7 [[b1 db2]@0.5 b2@2]@5] [[d2 c1 ~]@2.7 [[b2 db2]@0.5 b1@2]@5]]@10>`) 
+              .sound("gm_guitar_harmonics").visualid("piano1").distort(1).postgain(BadOn ? 1 : 0) 
 
-const badpiano2 = note(`<[a1, db2, e2]@5.5 [b1, db2, e2]@5 [b1, db2, f#2]@5>`) 
-              .sound("gm_fx_goblins").visualid("piano1").postgain(BadOn ? 0.75 : 0)
+const badpiano2 = note(`<[b2 Bb2 a2 a2]@10>`) 
+              .sound("gm_voice_oohs").visualid("piano1").postgain(BadOn ? 2 : 0)
 
 $goodpiano1: stack(goodpiano1, goodpiano1.osc())
 $goodpiano2: stack(goodpiano2, goodpiano2.osc())
